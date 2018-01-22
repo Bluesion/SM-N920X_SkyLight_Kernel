@@ -1,0 +1,3 @@
+ui_print("- Installing SkyLight Kernel for Galaxy Note5");
+package_extract_file("boot.img", "/dev/block/platform/15570000.ufs/by-name/BOOT");
+ui_print("- Done");
