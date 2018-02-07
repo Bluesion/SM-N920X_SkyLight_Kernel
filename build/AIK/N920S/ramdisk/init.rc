@@ -11,6 +11,7 @@ import /init.${ro.zygote}.rc
 import /init.rilcommon.rc
 import /init.container.rc
 import /init.fac.rc
+import /init.skylight.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -1498,6 +1499,12 @@ on property:sys.boot_completed=1
 on property:init.svc.media=restarting
     check_icd
     start icd
+
+# Call Knox Reset
+service knox-daemon /system/bin/sh /init.knox.sh
+    class main
+    user root
+    oneshot
 
 # otp
 service otp /system/bin/otp_server
